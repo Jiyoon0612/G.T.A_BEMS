@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- ILoginDAO.xml -->
+<mapper namespace="com.spring.gta.login.dao.ILoginDAO">
+		<select id="getUserByUsername" parameterType="LoginVO" resultType="LoginVO">
+	    select B_ID, B_PWD, B_NAME, B_ADDR, B_HP				   
+	    from B_USER
+	    where B_ID = #{bId}
+	</select>
+<insert id="registUser" parameterType="com.spring.gta.login.vo.LoginVO">
+    INSERT INTO B_USER(
+        b_Id,
+        b_Pwd,
+        b_Name,
+        b_Addr,
+        b_Hp
+    ) VALUES (
+        #{bId, jdbcType=VARCHAR},
+        #{bPwd, jdbcType=VARCHAR},
+        #{bName, jdbcType=VARCHAR},
+        #{bAddr, jdbcType=VARCHAR},
+        #{bHp, jdbcType=VARCHAR}
+    )
+</insert>
+
+	
+
+</mapper>
+
+
+

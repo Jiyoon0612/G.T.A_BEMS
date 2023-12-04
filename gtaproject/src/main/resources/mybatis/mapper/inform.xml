@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spring.gta.inform.dao.IinformDAO">
+
+	<select id="getInformList" resultType="InformVO">
+		SELECT B_ID,
+			I_DATE,
+			I_NUM,
+			I_NAME,
+			I_RANK,
+			I_TITLE,
+			I_CONTENTS,
+			I_PWD
+		FROM B_INFORM
+		WHERE I_DEL = 'N'
+	</select>
+
+	<insert id="writeinform" parameterType="InformVO">
+		INSERT INTO B_INFORM(
+			B_ID,
+			I_NAME,
+			I_RANK,
+			I_TITLE,
+			I_CONTENTS,
+			I_PWD)
+		VALUES (
+		#{bId},
+		#{iName},
+		#{iRank},
+		#{iTitle},
+		#{iContents},
+		#{iPwd})
+	</insert>
+	<select id="getInform" resultType="InformVO" parameterType="int">
+		SELECT B_ID,
+			I_NUM,
+			I_NAME,
+			I_RANK,
+			I_TITLE,
+			I_CONTENTS,
+			I_DATE,
+			I_PWD
+		FROM B_INFORM
+		WHERE I_NUM = #{iNum}
+
+	</select>
+	<update id="rewriteInform" parameterType="InformVO">
+		UPDATE b_inform
+		SET I_TITLE = #{iTitle},
+			I_CONTENTS = #{iContents},
+			I_DATE = SYSDATE
+		WHERE I_NUM = #{iNum}
+
+	</update>
+	<select id="searchInformList" resultType="InformVO" parameterType="SearchVO">
+    SELECT B_ID,
+        I_DATE,
+        I_NUM,
+        I_NAME,
+        I_RANK,
+        I_TITLE,
+        I_CONTENTS,
+        I_PWD
+    FROM B_INFORM
+    WHERE I_DEL = 'N'
+    <if test="searchOption == '전체'">
+        AND (I_NAME LIKE '%' || #{keyword} || '%' OR I_TITLE LIKE '%' || #{keyword} || '%')
+    </if>
+    <if test="searchOption != '전체'">
+        AND I_RANK = #{searchOption} 
+        AND (I_NAME LIKE '%' || #{keyword} || '%' OR I_TITLE LIKE '%' || #{keyword} || '%')
+    </if>
+</select>
+<update id="deleteInform" parameterType="InformVO">
+		UPDATE b_inform
+		SET I_DEL = 'Y'
+		WHERE I_NUM = #{iNum}
+
+	</update>
+
+</mapper>

@@ -1,0 +1,434 @@
+:root {
+    --clr-primary: #7380ec;
+    --clr-danger: #ff7782;
+    --clr-success: #41f1b6;
+    --clr-white: #fff;
+    --clr-info-dark: #7d8da1;
+    --clr-info-light: #dce1eb;
+    --cir-menu-hover:#bebebe;
+    --clr-dark: #363949;
+    --clr-warnig: #ff4edc;
+    --clr-light: rgba(132, 139, 200, 0.18);
+    --clr-primary-variant: #111e88;
+    --clr-dark-variant: #677483;
+    --clr-color-background: #dfdfdf;
+    --cir-color-shadow :rgb(0,0,0,0.4);
+    --clr-color-buliding_front : #d2d2d8;
+    --clr-color-buliding_side: #c0c0c0;
+    --clr-color-buliding_top: #dadada;
+    --clr-color-buliding_hover_f :  #fffffe;
+    --clr-color-buliding_hover_s : #cccccc;
+    --clr-color-buliding_hover_t :  #dbdbd8;
+    --cir-color-neon :  0 0 5px #fff, 0 0 10px #f7f59e, 0 0 20px #fcf803, 0 0 30px #fcf803, 0 0 40px #fcf803, 0 0 55px #fcf803, 0 0 75px #fcf803; 
+    --cir-color-selected :  #f3f3f3;
+    --clr-b_white: #fff;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --box-shadow-b: -190px 215px 20px var( --cir-color-shadow);
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--clr-light);
+    --cir-how : #000000;  
+  }
+  
+  /* dark theme */
+  
+  .dark-theme-variables {
+    --clr-color-background: #181a1e;
+    --clr-white: #3a3e41;
+    --clr-b_white: #5f5f96;
+    --clr-light: rgba(0, 0, 0, 0.4);
+    --clr-dark: #edeffd;
+    --clr-info-light: #202528;
+    --clr-dark-variant: #677483;
+    --cir-menu-hover:#323233;
+    --clr-color-buliding_front : #6e6eaf;
+    --clr-color-buliding_side:#46466b;
+    --clr-color-buliding_top: #7e7eb3;
+    --cir-color-shadow :rgba(85, 85, 85, 0.4);
+    --cir-color-shadow2 :rgba(143, 143, 255, 0.863);
+    --clr-color-buliding_hover_f : #9189a9;
+    --clr-color-buliding_hover_s : #676275;
+    --clr-color-buliding_hover_t : #78728a;
+    --cir-color-selected : #8f8fbd;
+    --cir-color-neon :  0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080; ;
+    --box-shadow-b: -190px 215px 20px var(--cir-color-shadow);
+    --box-shadow: 0 2rem 3rem var(--clr-light);
+    --cir-how : #fff;  
+    
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.Fbuild {
+width: 100%;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-size: 100% 100%; /* Cover both width and height */
+margin-top: 79%;
+margin-left: -30%;
+}
+
+
+.Fbuild ul {
+    position: relative;
+    transform: skewY(-15deg);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Fbuild ul li {
+  margin-left: 14%;
+  position: relative;
+  list-style: none;
+  width: 180px;
+  height: 120px;
+  max-width: 100%; /* 최대 너비 설정 */
+  max-height: 100%; /* 최대 높이 설정 */
+  background: var(--clr-color-buliding_front);
+  z-index: var(--i);
+  transition: 0.6s;
+  box-shadow: var(--box-shadow);
+  background-color: var(--clr-b_white);
+  padding: var(--card-padding);
+}
+
+   
+   .Fbuild ul li::before {
+    content: url(''); 
+    position: absolute;
+    top: 0;
+    left: -80px;
+    width: 80px;
+    height: 100%;
+    background: var( --clr-color-buliding_side);
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 0.5s;
+}
+
+.Fbuild ul li::after {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: 0;
+    padding: 0.5px;
+    width: 100%;
+    height: 80px;
+    background: var(--clr-color-buliding_top);
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 0.5s;
+}
+
+.Fbuild ul li:last-child::after {
+    box-shadow: var(--box-shadow-b);
+}
+
+.Fbuild ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    color: var(--clr-dark);
+    display: block;
+    transition: 0.5s;
+}
+
+.Fbuild ul li:hover {
+    background:var(--clr-color-buliding_hover_f);
+    transform: translateX(-30px);
+}
+
+.Fbuild ul li:hover::before {
+    background: var(--clr-color-buliding_hover_s);
+}
+
+.Fbuild ul li:hover::after {
+    background: var(--clr-color-buliding_hover_t);
+}
+
+
+.Fbuild .floor-item.selected {
+    background:  var(--cir-color-selected);
+    transform: translateX(-30px);
+    font-weight: bold; /* 글꼴 두께 */
+    color: #fff;
+    text-shadow: var(--cir-color-neon);
+  }
+
+  
+  /* menu 관련 css */
+
+
+#menu {
+    background-color: var(--clr-info-light);
+    margin-left: 55%;
+    width: 30%;
+    margin-top: 2%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    box-shadow: var(--box-shadow);
+    transition: all .3s ease;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  #menu:hover{
+    box-shadow: none;
+  }
+  #menu ul {
+    padding: 4px 0;
+    list-style: none;
+    height: auto;
+  }
+  
+  #menu li {
+    display: inline;
+    padding: 8px;
+  }
+  
+  #menu a {
+    display: inline-block;
+    color:rgb(101, 101, 255);
+    padding: 3px;
+    text-decoration: none;
+  }
+  
+  #menu a:hover {
+    background-color: #c5c4c4;
+    background-color: var( --cir-menu-hover);
+    border-radius: 20px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -o-border-radius: 30px;
+  }
+
+
+  main .data {
+    margin-top: -32%;
+    margin-left: 55%;
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+    gap: 0.2rem;
+    height: 20%; 
+    width: 30%;
+  }
+
+  main .data> div{
+    background-color:var(--clr-white);
+     padding: var(--card-padding);
+     border-radius: var(--card-border-radius);
+     margin-top: 1.1rem;
+     box-shadow: var(--box-shadow);
+     transition: all .3s ease;
+
+  }
+  
+  main.data:hover{
+    box-shadow: none;
+  }
+  .silde_card{
+    margin-top: -15%;
+    margin-left: 20%; 
+    display: none;
+    text-align: center; 
+    height: 100%;
+  }
+  .silde_card h3,
+  .silde_card h2{
+    color : var(--clr-dark);
+     
+  }
+
+  .datas .clicked {
+    color: var(--cir-color-neon);
+    font-weight: bold;
+  }
+  
+
+  #plug{
+    background: rgb(158, 158, 158);
+     padding: 0.5rem;
+      border-radius: 20%;
+      color: var(--clr-white);
+      font-size: 2rem; 
+      box-shadow:0 0 10px rgba(90, 98, 216, 0.8);
+   }
+  #aircon {
+    background: rgb(113, 168, 240);
+     padding: 0.5rem;
+      border-radius: 20%;
+      color: var(--clr-white);
+      font-size: 1.8rem; 
+      box-shadow:0 0 10px rgba(90, 98, 216, 0.8); 
+   }
+
+   #light{
+    background: rgb(221, 240, 50);
+     padding: 0.5rem;
+      border-radius: 20%;
+      color: var(--clr-white);
+      font-size: 1.8rem; 
+      box-shadow:0 0 10px rgba(160, 135, 66, 0.8);
+   }
+
+   /*****************
+Detail of Energy
+*****************/
+
+main .energychart{
+  background-color: var(--clr-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 3rem;
+  box-shadow: var(--box-shadow);
+  transition: all .3s ease;
+  width: 85%;
+  height: 47%;
+  max-width: 100%; 
+  max-height: 100%; 
+}
+main .energychart:hover{
+  box-shadow : none;
+}
+ 
+.bn-floor {
+  position: relative;
+  }
+.bn-floor .ex-floor{
+  position: absolute;
+  display: inline-block;
+  margin-top: 20%;
+  margin-left: -50%;
+  width: 30%;
+
+}
+.bn-floor .ex-floor span {
+  margin-top: 40px; 
+
+}
+
+.bn-floor .ex-floor h3 {
+  font-size: 15px;
+  margin-top: -19px;
+  margin-left: 35px; 
+}
+
+ 
+.bn-floor span,
+.bn-floor h3 {
+  color: var(--cir-how); 
+  transition: color 0.5s;
+}
+
+.bn-floor .gif {
+  position: absolute;
+  top: calc(100% + 10px); 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  width: 400px;
+  height: 200px;
+}
+
+.bn-floor:hover span,
+.bn-floor:hover h3 {
+  color: rgb(146, 145, 145); 
+}
+
+.bn-floor:hover .gif {
+  opacity: 1;
+  visibility: visible;
+  z-index: 9999;
+}
+
+
+
+/* chart css */
+.floor-total-chart {
+  background-color: var(--clr-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 1rem;
+
+  box-shadow: var(--box-shadow);
+  transition: all .3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 33%;
+  position: relative; 
+}
+
+.floor-tot {
+  display: flex;
+  flex-direction: column; /* 추가: 세로 방향으로 배치 */
+  align-items: flex-start; /* 수정: 왼쪽으로 정렬 */
+
+}
+
+.doughnut-chart {
+  position: static;
+  width: 250px; /* Adjust the width as needed */
+  height: 250px; /* Adjust the height as needed */
+  margin: 0 auto;
+}
+
+.floor-tot h2 {
+
+  margin: 0;
+  font-size: 1.4rem;
+  align-self: flex-start; /* 추가: 왼쪽 상단에 배치 */
+}
+.floor-text{
+  color: var(--cir-how);
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  margin: 0;
+  font-size: 2.1rem;
+}
+.floor-tot small {
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  margin-top: 10px; 
+}
+
+canvas#doughnutChartCanvas {
+  width: 100%;
+  height: 100%;
+
+  margin-top: 20%;
+}
+
+
+.hidden {
+  display: none;
+}

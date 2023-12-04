@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- ILoginDAO.xml -->
+<mapper namespace="com.spring.gta.dashboard.dao.IDashboardDAO">
+
+
+	<!-- 버튼 눌렀을때 나오는 값 -->
+	<select id="getdashboardSearchList" resultType="DashboardVO"
+		parameterType="DashboardsearchVO">
+		select nvl(sum(be_total_energy),0) as be_total_energy
+		from be_device
+		where b_id = #{bId}
+		<if
+			test="@org.apache.commons.lang3.StringUtils@isNotBlank(searchType)">
+			<if test="searchType=='now'">
+				and to_char(be_date,'YYYYMMDDHH24') =
+				to_char(sysdate,'YYYYMMDDHH24')
+			</if>
+			<if test="searchType=='day'">
+				and to_char(be_date,'YYYYMMDD') =
+				to_char(sysdate,'YYYYMMDD')
+			</if>
+			<if test="searchType=='week'">
+				and be_date between TRUNC(SYSDATE, 'IW') and SYSDATE
+			</if>
+			<if test="searchType=='month'">
+				and to_char(be_date,'YYYYMM') = to_char(sysdate,'YYYYMM')
+			</if>
+		</if>
+	</select>
+	<!-- 그 값 밑에 작은 글씨 저번달 값 -->
+	<select id="getmonth" resultType="DashboardVO"
+		parameterType="DashboardsearchVO">
+
+		SELECT ROUND(SUM(be_total_energy), 1) AS month
+		FROM
+		be_device
+		WHERE to_char(be_date, 'YY-mm') = TO_CHAR(ADD_MONTHS(SYSDATE,
+		-1), 'YY-mm')
+		AND b_id = #{bId}
+		GROUP BY b_id, to_char(be_date, 'YY-mm')
+
+	</select>
+	<!-- 메인 차트 View접근 -->
+	<select id="getChartData" parameterType="String"
+		resultType="ChartVO">
+		select
+		LABEL,
+		YESTERDAY_DATA,
+		TODAY_DATA,
+		TOTAL_MODEL_DATA
+		from
+		${currentDataset}_CHART_VIEW
+
+	</select>
+	<!-- 기기 차트 -->
+	<select id="getHorizontal" resultType="DashboardVO">
+		SELECT
+		NVL(SUM(be_plug_energy), 0) AS be_plug_energy,
+		NVL(SUM(be_ac_energy), 0) AS be_ac_energy,
+		NVL(SUM(be_light_energy), 0) AS be_light_energy
+		FROM be_device
+		WHERE b_id = 'gta' AND TO_CHAR(be_date, 'YYYYMM') = TO_CHAR(sysdate,
+		'YYYYMM')
+
+	</select>
+</mapper>
+
+
+
