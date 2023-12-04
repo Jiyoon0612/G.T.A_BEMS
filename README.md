@@ -1,4 +1,1 @@
-# gtaBEMS
-
----
-url : local / => root( 로그인 )
+## 탄소 중립 BEMS 시스템 [TEAM : GTA ] 
