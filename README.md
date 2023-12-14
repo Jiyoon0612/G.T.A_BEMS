@@ -21,5 +21,4 @@
 ---
 <img src = "![ezgif com-video-to-gif-converted](https://github.com/Jiyoon0612/G.T.A_BEMS/assets/137297934/363c0536-eb6b-4153-bf15-446f7c5ab0aa)">
 
-<img src = "![ezgif com-video-to-gif-converted (2)](https://github.com/Jiyoon0612/G.T.A_BEMS/assets/137297934/a9c18bec-0deb-4a9e-b67b-d69091899866)">
 
