@@ -17,8 +17,5 @@
    * 1분단위 에너지 데이터를 학습 시켜서 예측함
 5. 에너지 사용량에 대한 예측 금액을 제공한다.
 
-### 구현 영상
----
-<img src = "![ezgif com-video-to-gif-converted](https://github.com/Jiyoon0612/G.T.A_BEMS/assets/137297934/363c0536-eb6b-4153-bf15-446f7c5ab0aa)">
 
 
