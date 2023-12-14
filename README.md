@@ -19,5 +19,7 @@
 
 ### 구현 영상
 
+![ezgif com-video-to-gif-converted](https://github.com/Jiyoon0612/G.T.A_BEMS/assets/137297934/c1fbadbd-00dc-45f3-a5f9-f6c8844b8f59)
+
 <img src="![ezgif com-video-to-gif-converted (1)](https://github.com/Jiyoon0612/G.T.A_BEMS/assets/137297934/5a77ac44-bbd5-4b3e-aabf-39cf45e526c1)">
 
